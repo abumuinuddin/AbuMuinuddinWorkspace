@@ -1,0 +1,51 @@
+<html ng-app="myApp">
+  <head>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    
+  </head>
+  <body ng-controller="CartController" >
+    
+    
+      New product
+      <div >
+        <form ng-submit="add()" >
+
+          <div>
+            <label >Item</label>
+            <input type="text" ng-model="item"/>
+          </div>
+          
+          <div>
+            <span>Price</span>
+            <input type="text" ng-model="price"/>
+          </div>
+
+          <div>
+            <label >Quantity</label>
+            <input type="text" ng-model="quantity"/> {{quantity}}
+          </div>
+               <input type="submit" class="btn btn-default" value="Add Item" />
+        </form>
+        
+
+    <table class="table" ng-show="cartData.length > 0">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th colspan="2">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in cartData">
+          <td>{{item.name}}</td>
+          <td>{{item.price | currency}}</td>
+          <td>{{item.quantity}}</td>
+          <td>
+            <button ng-click="remove($index)" class="btn btn-default">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

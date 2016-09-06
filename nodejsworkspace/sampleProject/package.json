@@ -1,0 +1,11 @@
+{
+  "name": "sampleproject",
+  "version": "1.0.0",
+  "description": "Sample node js",
+  "main": "example.js",
+  "scripts": {
+    "test": "console.log ('hi);"
+  },
+  "author": "Abu Muinuddin",
+  "license": "ISC"
+}

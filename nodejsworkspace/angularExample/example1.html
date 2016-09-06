@@ -1,0 +1,30 @@
+<html ng-app="nameApp">  
+    <head>    
+        <meta charset="utf-8">    
+        <title>Angular.js Example</title>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>    
+        <script>      
+            var nameApp = angular.module('nameApp', []);     
+
+            nameApp.controller('NameCtrl', function ($scope) {        
+                $scope.names = ['Larry', 'Curly', 'Moe'];      
+                
+                $scope.addName = function(event) {
+                  
+                    if (event.keyCode === 13) 
+                    {        // user hit enter    
+                        console.log('User hit enter');
+                        $scope.names.push($scope.enteredName);
+                    }
+                };
+            });
+        </script>
+    </head>
+    
+    <body ng-controller="NameCtrl">
+            <ul>      
+                <li ng-repeat="name in names track by $index">{{$index}} {{name}}</li>   
+            </ul> 
+            <input type="text" ng-model="enteredName" ng-keyup="addName($event)"> 
+    </body>
+</html>
